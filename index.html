@@ -15,33 +15,42 @@
   </header>
 
   <section>
-    <p>
-      The quiz consists of only 5 multiple-choice questions and you have 1 minute to complete the quiz. When you click "Start", a timer will appear below the quiz. Your score is based on how much time you have remaining. You also have the option to view the previous record high scores with the person's initial, which we will also ask you to do too.
-    </p>
+    <blockquote>
+      This 1-minute quiz consists of only 5 multiple-choice questions. When you click "Start", the timer begins countdown. Your score is the amount of time you have left. You also have the option to view the previous record high scores with the person's initial, which we will also ask you to do too.
+    </blockquote>
   </section>
 
-  <section class="question-container" >
+  <a href="./highscore.html">View High Score</a>
 
-    <section class="questions" id="questions">
+  <button class="start" id="start">Start</button>
+
+  <blockquote class="timer hide" id="timer"></blockquote>
+
+  <section class="hide" id="questions">
+
       <section id="question">
         <h2>Question</h2>
       </section>
-       <section class="buttons hide">
-          <button class="answer">Answer 1</button>
-          <button class="answer">Answer 1</button>
-          <button class="answer">Answer 1</button>
-          <button class="answer">Answer 1</button>
-      </section>
 
-      <section class="control-buttons">
-        <button class="begin" id="begin">Start</button>
-        <button class="next hide" id="next">Next</button>
+       <section class="buttons">
+          <button class="answer">Answer 1</button>
+          <button class="answer">Answer 2</button>
+          <button class="answer">Answer 3</button>
+          <button class="answer">Answer 4</button>
       </section>
     </section>
   </section>
-  <footer class="time"></footer>
 
-  <script src="./script.js"></script>
+  <button class="next hide" id="next">
+    Next
+  </button>
+
+  <form action="" class="hide" id="initials">
+    Initials: <input type="text">
+    Score: <input type="text">
+  </form>
+
+  <script src="./assets/js/script.js"></script>
 </body>
 
 </html>

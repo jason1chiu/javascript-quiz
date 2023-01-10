@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./assets/css/style.css" />
+  <title>JavaScript Assessment</title>
+</head>
+
+<body>
+  <header>
+    <h1>Math Quiz</h1>
+  </header>
+
+  <section>
+    <p>
+      The quiz consists of only 5 multiple-choice questions and you have 1 minute to complete the quiz. When you click "Start", a timer will appear below the quiz. Your score is based on how much time you have remaining. You also have the option to view the previous record high scores with the person's initial, which we will also ask you to do too.
+    </p>
+  </section>
+
+  <section class="question-container" >
+
+    <section class="questions" id="questions">
+      <section id="question">
+        <h2>Question</h2>
+      </section>
+       <section class="buttons hide">
+          <button class="answer">Answer 1</button>
+          <button class="answer">Answer 1</button>
+          <button class="answer">Answer 1</button>
+          <button class="answer">Answer 1</button>
+      </section>
+
+      <section class="control-buttons">
+        <button class="begin" id="begin">Start</button>
+        <button class="next hide" id="next">Next</button>
+      </section>
+    </section>
+  </section>
+  <footer class="time"></footer>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>

@@ -24,19 +24,19 @@
 
   <button class="start" id="start">Start</button>
 
-  <blockquote class="timer hide" id="timer"></blockquote>
+  <blockquote class="timer" id="timer"></blockquote>
 
   <section class="hide" id="questions">
 
-      <section id="question">
-        <h2>Question</h2>
+      <section>
+        <h2 id="question">Question</h2>
       </section>
 
        <section class="buttons">
-          <button class="answer">Answer 1</button>
-          <button class="answer">Answer 2</button>
-          <button class="answer">Answer 3</button>
-          <button class="answer">Answer 4</button>
+          <button class="answer" id="answer">Answer 1</button>
+          <button class="answer" id="answer">Answer 2</button>
+          <button class="answer" id="answer">Answer 3</button>
+          <button class="answer" id="answer">Answer 4</button>
       </section>
     </section>
   </section>
@@ -45,10 +45,20 @@
     Next
   </button>
 
-  <form action="" class="hide" id="initials">
-    Initials: <input type="text">
-    Score: <input type="text">
-  </form>
+  <button class="finish hide" id="finish">
+    Finished
+  </button>
+
+  <section class="form hide" id="form">
+    <form action="" id="initials">
+      Initials: <input type="text">
+    </form>
+    <p id="score"></p>
+  </section>
+
+  <button class="submit hide" id="submission">
+    Submit
+  </button>
 
   <script src="./assets/js/script.js"></script>
 </body>

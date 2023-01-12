@@ -16,27 +16,27 @@
 
   <section>
     <blockquote>
-      This 1-minute quiz consists of only 5 multiple-choice questions. When you click "Start", the timer begins countdown. Your score is the amount of time you have left. You also have the option to view the previous record high scores with the person's initial, which we will also ask you to do too.
+      This 1-minute quiz consists of only 5 multiple-choice questions. When you click "Start", the timer begins countdown. Your score is the amount of time you have left minus 10% for each wrong answer. You also have the option to view the previous record high scores with the person's initial, which we will also ask you to do too.
     </blockquote>
   </section>
 
-  <a href="./highscore.html">View High Score</a>
+  <a href="./highscore.html">View High Scores</a>
 
   <button class="start" id="start">Start</button>
 
   <blockquote class="timer" id="timer"></blockquote>
 
-  <section class="hide" id="questions">
+  <section id="questions">
 
       <section>
         <h2 id="question">Question</h2>
       </section>
 
        <section class="buttons">
-          <button class="answer" id="answer">Answer 1</button>
-          <button class="answer" id="answer">Answer 2</button>
-          <button class="answer" id="answer">Answer 3</button>
-          <button class="answer" id="answer">Answer 4</button>
+          <button class="answer-text firstAnswer" id="answer" data-number="1">Answer 1</button>
+          <button class="answer-text secondAnswer" id="answer" data-number="2">Answer 2</button>
+          <button class="answer-text thirdAnswer" id="answer" data-number="3">Answer 3</button>
+          <button class="answer-text fourthAnswer" id="answer" data-number="4">Answer 4</button>
       </section>
     </section>
   </section>
@@ -49,14 +49,14 @@
     Finished
   </button>
 
-  <section class="form hide" id="form">
+  <section class="form" id="form">
     <form action="" id="initials">
       Initials: <input type="text">
     </form>
     <p id="score"></p>
   </section>
 
-  <button class="submit hide" id="submission">
+  <button class="submit" id="submission">
     Submit
   </button>
 

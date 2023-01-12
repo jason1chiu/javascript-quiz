@@ -14,8 +14,8 @@ var questionEl = document.getElementById("question");
 var firstAnswer = document.querySelector(".firstAnswer")
 var secondAnswer = document.querySelector(".secondAnswer");
 var thirdAnswer = document.querySelector(".thirdAnswer");
-var fourthAnswer = document.querySelector(".fourthAnswer")
-var nextBtn = document.getElementById("next");
+var fourthAnswer = document.querySelector(".fourthAnswer");
+var answerBtn = document.querySelectorAll(".answer");
 
 // variables containing my questions and answers
 var questions = [
@@ -25,7 +25,7 @@ var questions = [
     answer2: "24",
     answer3: "6",
     answer4: "42",
-    answer: 3,
+    answer: "6",
     },
   {
     question: "What is 4 x 2?",
@@ -33,7 +33,7 @@ var questions = [
     answer2: "24",
     answer3: "8", 
     answer4: "22",
-    answer: 3,
+    answer: "8",
   },
   {
     question: "What is 4 squared?",
@@ -41,7 +41,7 @@ var questions = [
     answer2: "4",
     answer3: "2",
     answer4: "44",
-    answer: 1,
+    answer: "16",
   },
   {
     question: "What is the permutation of (4, 2)?",
@@ -49,7 +49,7 @@ var questions = [
     answer2: "63",
     answer3: "34",
     answer4: "24",
-    answer: 1,
+    answer: "12",
   },
   {
     question: "What is the combinatoric of (4, 2)?",
@@ -57,6 +57,7 @@ var questions = [
     answer2: "6",
     answer3: "39",
     answer4: "20",
+    answer: "6",
   },
 ];
 
@@ -79,7 +80,7 @@ timerInterval = setInterval(function() {
   timeLeft--;
   timerEl.textContent = timeLeft + " second(s) left";
 
-    if (timeLeft === 0) {
+    if (timeLeft <= 0) {
       clearInterval(timerInterval);
       timerEl.textContent = "TIME'S UP!"
       scoreEl.textContent = "Score: 0";
@@ -90,7 +91,6 @@ timerInterval = setInterval(function() {
 function startQuiz() {
   
   startBtn.classList.add("hide");
-  nextBtn.classList.remove("hide");
 
   start();
   showFirstQuestion();
@@ -105,31 +105,45 @@ function showFirstQuestion() {
 }
 
 // functions for continuous events
-nextBtn.addEventListener("click", showNextQuestion);
+firstAnswer.addEventListener('click', checkAnswer);
+secondAnswer.addEventListener('click', checkAnswer);
+thirdAnswer.addEventListener('click', checkAnswer);
+fourthAnswer.addEventListener('click', checkAnswer);
+
+function checkAnswer() {
+  var expression = questions[questionNumber].answer;
+  var expression1 = questions[questionNumber].answer1;
+  var expression2 = questions[questionNumber].answer2;
+  var expression3 = questions[questionNumber].answer3;
+  var expression4 = questions[questionNumber].answer4;
+
+  if (expression !== expression1) {
+    timeLeft = Math.floor(timeLeft*0.95);
+  } else if (expression !== expression2) {
+    timeLeft = Math.floor(timeLeft*0.95);
+  } else if (expression !== expression3) {
+    timeLeft = Math.floor(timeLeft*0.95);
+  } else if (expression !== expression4) {
+    timeLeft = Math.floor(timeLeft*0.95);
+  } else {
+    timeLeft = timeLeft;
+  };
+
+  showNextQuestion();
+}
 
 function showNextQuestion() {
   questionNumber++;
-  questionEl.innerText = questions[questionNumber].question;
-  firstAnswer.innerText = questions[questionNumber].answer1;
-  secondAnswer.innerText = questions[questionNumber].answer2;
-  thirdAnswer.innerText = questions[questionNumber].answer3;
-  fourthAnswer.innerText = questions[questionNumber].answer4;
-
-  if (questionNumber === questions.length - 1) {
+  if (questionNumber === questions.length) {
     finishBtn.classList.remove("hide");
-    nextBtn.classList.add("hide");
   } else {
     questionEl.innerText = questions[questionNumber].question;
-  };
-
-  if (firstAnswer.style.background-color === "green") {
-    firstAnswer.style.background-color === "blue";
+    firstAnswer.innerText = questions[questionNumber].answer1;
+    secondAnswer.innerText = questions[questionNumber].answer2;
+    thirdAnswer.innerText = questions[questionNumber].answer3;
+    fourthAnswer.innerText = questions[questionNumber].answer4;
   };
 };
-
-firstAnswer.addEventListener("click", function() {
-  firstAnswer.setAttribute("style", "background-color: green");
-});
 
 // functions for finish events
 finishBtn.addEventListener('click', stop)
@@ -138,52 +152,3 @@ function stop() {
   clearInterval(timerInterval);
   scoreEl.textContent = "Score: " + timeLeft;
 }
-
-/* var myQuestions = [
-  {
-    question: "What is 4 + 2?",
-    answer: [
-      {text: "2", correct: false},
-      {text: "6", correct: true},
-      {text: "42", correct: false},
-      {text: "8", correct: false}
-    ]
-    },
-  {
-    question: "What is 4 x 2?",
-    answer: [
-      {text: "10", correct: false},
-      {text: "24", correct: false},
-      {text: "8", correct: true},
-      {text: "22", correct: false}
-    ]
-    },
-  {
-    question: "What is 4 squared?",
-    answer: [
-      {text: "16", correct: true},
-      {text: "4", correct: false},
-      {text: "2", correct: false},
-      {text: "44", correct: false}
-    ]
-    },
-  {
-    question: "What is the permutation of (4, 2)?",
-    answer: [
-      {text: "12", correct: true},
-      {text: "63", correct: false},
-      {text: "34", correct: false},
-      {text: "24", correct: false}
-    ]
-    },
-  {
-    question: "What is the combinatoric of (4, 2)?",
-    answers: [
-      {text: "43", correct: false},
-      {text: "6", correct: true},
-      {text: "39", correct: false},
-      {text: "20", correct: false}
-    ]
-    },
-]; */
-

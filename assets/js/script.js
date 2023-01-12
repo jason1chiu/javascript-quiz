@@ -105,29 +105,54 @@ function showFirstQuestion() {
 }
 
 // functions for continuous events
-firstAnswer.addEventListener('click', checkAnswer);
-secondAnswer.addEventListener('click', checkAnswer);
-thirdAnswer.addEventListener('click', checkAnswer);
-fourthAnswer.addEventListener('click', checkAnswer);
+firstAnswer.addEventListener('click', checkFirstAnswer);
 
-function checkAnswer() {
+function checkFirstAnswer() {
   var expression = questions[questionNumber].answer;
   var expression1 = questions[questionNumber].answer1;
-  var expression2 = questions[questionNumber].answer2;
-  var expression3 = questions[questionNumber].answer3;
-  var expression4 = questions[questionNumber].answer4;
 
   if (expression !== expression1) {
     timeLeft = Math.floor(timeLeft*0.95);
-  } else if (expression !== expression2) {
+  } 
+
+  showNextQuestion();
+}
+
+secondAnswer.addEventListener('click', checkSecondAnswer);
+
+function checkSecondAnswer() {
+  var expression = questions[questionNumber].answer;
+  var expression2 = questions[questionNumber].answer2;
+
+  if (expression !== expression2) {
     timeLeft = Math.floor(timeLeft*0.95);
-  } else if (expression !== expression3) {
+  } 
+
+  showNextQuestion();
+}
+
+thirdAnswer.addEventListener('click', checkThirdAnswer);
+
+function checkThirdAnswer() {
+  var expression = questions[questionNumber].answer;
+  var expression3 = questions[questionNumber].answer3;
+
+  if (expression !== expression3) {
     timeLeft = Math.floor(timeLeft*0.95);
-  } else if (expression !== expression4) {
+  } 
+
+  showNextQuestion();
+}
+
+fourthAnswer.addEventListener('click', checkFourthAnswer);
+
+function checkFourthAnswer() {
+  var expression = questions[questionNumber].answer;
+  var expression4 = questions[questionNumber].answer4;
+
+  if (expression !== expression4) {
     timeLeft = Math.floor(timeLeft*0.95);
-  } else {
-    timeLeft = timeLeft;
-  };
+  } 
 
   showNextQuestion();
 }

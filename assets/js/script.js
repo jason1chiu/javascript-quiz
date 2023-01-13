@@ -16,6 +16,8 @@ var secondAnswer = document.querySelector(".secondAnswer");
 var thirdAnswer = document.querySelector(".thirdAnswer");
 var fourthAnswer = document.querySelector(".fourthAnswer");
 
+var check = document.querySelector(".check");
+
 // variables containing my questions and answers
 var questions = [
   {
@@ -24,7 +26,7 @@ var questions = [
     answer2: "24",
     answer3: "6",
     answer4: "42",
-    answer: "6",
+    answer: "c",
     },
   {
     question: "What is 4 x 2?",
@@ -32,7 +34,7 @@ var questions = [
     answer2: "24",
     answer3: "8", 
     answer4: "22",
-    answer: "8",
+    answer: "c",
   },
   {
     question: "What is 4 squared?",
@@ -40,7 +42,7 @@ var questions = [
     answer2: "4",
     answer3: "2",
     answer4: "44",
-    answer: "16",
+    answer: "a",
   },
   {
     question: "What is the permutation of (4, 2)?",
@@ -48,7 +50,7 @@ var questions = [
     answer2: "63",
     answer3: "34",
     answer4: "24",
-    answer: "12",
+    answer: "a",
   },
   {
     question: "What is the combinatoric of (4, 2)?",
@@ -56,7 +58,7 @@ var questions = [
     answer2: "6",
     answer3: "39",
     answer4: "20",
-    answer: "6",
+    answer: "b",
   },
 ];
 
@@ -67,11 +69,7 @@ var timeLeft = 61;
 var timerInterval;
 var score;
 
-var expression = questions[questionNumber].answer;
-var expression1 = questions[questionNumber].answer1;
-var expression2 = questions[questionNumber].answer2;
-var expression3 = questions[questionNumber].answer3;
-var expression4 = questions[questionNumber].answer4;
+var expression = "";
 
 // functions for start events
 startBtn.addEventListener('click', startQuiz);
@@ -102,50 +100,26 @@ function startQuiz() {
 
 function showFirstQuestion() {
   questionEl.innerText = questions[questionNumber].question;
-  firstAnswer.innerText = expression1;
-  secondAnswer.innerText = expression2;
-  thirdAnswer.innerText = expression3;
-  fourthAnswer.innerText = expression4;
+  firstAnswer.innerText = questions[questionNumber].answer1;
+  secondAnswer.innerText = questions[questionNumber].answer2;
+  thirdAnswer.innerText = questions[questionNumber].answer3;
+  fourthAnswer.innerText = questions[questionNumber].answer4;
 }
 
-// functions for continuous events
-firstAnswer.addEventListener('click', checkFirstAnswer);
+function checkAnswer(answerPick) {
+  
+  expression = questions[questionNumber].answer;
 
-function checkFirstAnswer() {
-  if (expression !== expression1) {
-    timeLeft = Math.floor(timeLeft*0.5);
-  } 
+  if (expression !== answerPick) {
+    timeLeft = Math.floor(timeLeft * 0.9);
+    check.textContent = "Wrong!";
+  } else {
+    check.textContent = "Correct";
+  }
 
-  showNextQuestion();
-}
-
-secondAnswer.addEventListener('click', checkSecondAnswer);
-
-function checkSecondAnswer() {
-  if (expression !== expression2) {
-    timeLeft = Math.floor(timeLeft*0.5);
-  } 
-
-  showNextQuestion();
-}
-
-thirdAnswer.addEventListener('click', checkThirdAnswer);
-
-function checkThirdAnswer() {
-  if (expression !== expression3) {
-    timeLeft = Math.floor(timeLeft*0.5);
-  } 
-
-  showNextQuestion();
-}
-
-fourthAnswer.addEventListener('click', checkFourthAnswer);
-
-function checkFourthAnswer() {
-
-  if (expression !== expression4) {
-    timeLeft = Math.floor(timeLeft*0.5);
-  } 
+  setTimeout(function() {
+    check.textContent = "";
+  }, 1000);
 
   showNextQuestion();
 }

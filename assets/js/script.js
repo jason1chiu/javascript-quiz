@@ -114,7 +114,7 @@ function checkAnswer(answerPick) {
     timeLeft = Math.floor(timeLeft * 0.9);
     check.textContent = "Wrong!";
   } else {
-    check.textContent = "Correct";
+    check.textContent = "Correct!";
   }
 
   setTimeout(function() {

@@ -94,7 +94,7 @@ button {
   background-color: red;
 }
 
-.start, .finish, .submit {
+.start, .submit {
   display: flex;
   flex-flow: row wrap;
   width: 100%;

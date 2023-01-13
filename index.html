@@ -43,14 +43,14 @@
 
   </section>
 
-  <section class="form" id="form">
-    <form action="" id="initials">
-      Initials: <input type="text">
-    </form>
-    <p id="score"></p>
-  </section>
+  <form>
+    <input type="text" name="initials" id="initials" placeholder="initials">
+    <p>
+      Score: <span id="finalscore">24</span>
+    </p>
+  </form>
 
-  <button class="submit" id="submission">
+  <button class="submit" id="submit" onclick="saveScore(event)">
     Submit
   </button>
 

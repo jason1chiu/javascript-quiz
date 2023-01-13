@@ -86,14 +86,6 @@ button {
   border: 2px solid black;
 }
 
-.correct {
-  background-color: green;
-}
-
-.wrong {
-  background-color: red;
-}
-
 .start, .submit {
   display: flex;
   flex-flow: row wrap;
@@ -110,7 +102,7 @@ button {
   box-shadow: 3px 4px green;
 }
 
-.form {
+form {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-evenly;

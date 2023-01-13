@@ -15,7 +15,6 @@ var firstAnswer = document.querySelector(".firstAnswer")
 var secondAnswer = document.querySelector(".secondAnswer");
 var thirdAnswer = document.querySelector(".thirdAnswer");
 var fourthAnswer = document.querySelector(".fourthAnswer");
-var answerBtn = document.querySelectorAll(".answer");
 
 // variables containing my questions and answers
 var questions = [
@@ -112,7 +111,7 @@ function checkFirstAnswer() {
   var expression1 = questions[questionNumber].answer1;
 
   if (expression !== expression1) {
-    timeLeft = Math.floor(timeLeft*0.95);
+    timeLeft = Math.floor(timeLeft*0.5);
   } 
 
   showNextQuestion();
@@ -125,7 +124,7 @@ function checkSecondAnswer() {
   var expression2 = questions[questionNumber].answer2;
 
   if (expression !== expression2) {
-    timeLeft = Math.floor(timeLeft*0.95);
+    timeLeft = Math.floor(timeLeft*0.5);
   } 
 
   showNextQuestion();
@@ -138,7 +137,7 @@ function checkThirdAnswer() {
   var expression3 = questions[questionNumber].answer3;
 
   if (expression !== expression3) {
-    timeLeft = Math.floor(timeLeft*0.95);
+    timeLeft = Math.floor(timeLeft*0.5);
   } 
 
   showNextQuestion();
@@ -151,16 +150,22 @@ function checkFourthAnswer() {
   var expression4 = questions[questionNumber].answer4;
 
   if (expression !== expression4) {
-    timeLeft = Math.floor(timeLeft*0.95);
+    timeLeft = Math.floor(timeLeft*0.5);
   } 
 
   showNextQuestion();
 }
 
+function stop() {  
+  clearInterval(timerInterval);
+  scoreEl.textContent = "Score: " + timeLeft;
+} 
+
 function showNextQuestion() {
+
   questionNumber++;
   if (questionNumber === questions.length) {
-    finishBtn.classList.remove("hide");
+    stop();
   } else {
     questionEl.innerText = questions[questionNumber].question;
     firstAnswer.innerText = questions[questionNumber].answer1;
@@ -169,11 +174,3 @@ function showNextQuestion() {
     fourthAnswer.innerText = questions[questionNumber].answer4;
   };
 };
-
-// functions for finish events
-finishBtn.addEventListener('click', stop)
-
-function stop() {  
-  clearInterval(timerInterval);
-  scoreEl.textContent = "Score: " + timeLeft;
-}

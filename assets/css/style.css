@@ -30,7 +30,7 @@ header {
   align-items: center;
 }
 
-.timer {
+.timer, .check {
   display: flex;
   justify-content: center;
 }

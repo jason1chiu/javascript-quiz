@@ -4,10 +4,8 @@ var timerEl = document.getElementById("timer");
 
 // variables for functions once quiz ends
 var inputEl = document.getElementById("initials");
-var scoreEl = document.getElementById("score");
-var submitEl = document.getElementById("submission");
-var formEl = document.getElementById("form");
-var finishBtn = document.getElementById("finish");
+var submitEl = document.getElementById("submit");
+var scoreEl = document.getElementById("finalscore");
 
 // variables for functions as quiz continues
 var questionEl = document.getElementById("question");
@@ -85,7 +83,7 @@ timerInterval = setInterval(function() {
     if (timeLeft <= 0) {
       clearInterval(timerInterval);
       timerEl.textContent = "TIME'S UP!"
-      scoreEl.textContent = "Score: 0";
+      scoreEl.textContent = "0";
     }
   }, 1000);
 }
@@ -126,7 +124,7 @@ function checkAnswer(answerPick) {
 
 function stop() {  
   clearInterval(timerInterval);
-  scoreEl.textContent = "Score: " + timeLeft;
+  scoreEl.textContent = timeLeft;
 } 
 
 function showNextQuestion() {
@@ -142,3 +140,9 @@ function showNextQuestion() {
     fourthAnswer.innerText = questions[questionNumber].answer4;
   };
 };
+
+function saveScore(event) {
+  console.log("savedscore");
+  event.preventDefault;
+
+}

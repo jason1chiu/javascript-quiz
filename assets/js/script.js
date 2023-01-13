@@ -63,10 +63,15 @@ var questions = [
 // variables for clicker events
 var timeCounter = 0;
 var questionNumber = 0;
-var timeLeft = 60;
+var timeLeft = 61;
 var timerInterval;
 var score;
 
+var expression = questions[questionNumber].answer;
+var expression1 = questions[questionNumber].answer1;
+var expression2 = questions[questionNumber].answer2;
+var expression3 = questions[questionNumber].answer3;
+var expression4 = questions[questionNumber].answer4;
 
 // functions for start events
 startBtn.addEventListener('click', startQuiz);
@@ -97,19 +102,16 @@ function startQuiz() {
 
 function showFirstQuestion() {
   questionEl.innerText = questions[questionNumber].question;
-  firstAnswer.innerText = questions[questionNumber].answer1;
-  secondAnswer.innerText = questions[questionNumber].answer2;
-  thirdAnswer.innerText = questions[questionNumber].answer3;
-  fourthAnswer.innerText = questions[questionNumber].answer4;
+  firstAnswer.innerText = expression1;
+  secondAnswer.innerText = expression2;
+  thirdAnswer.innerText = expression3;
+  fourthAnswer.innerText = expression4;
 }
 
 // functions for continuous events
 firstAnswer.addEventListener('click', checkFirstAnswer);
 
 function checkFirstAnswer() {
-  var expression = questions[questionNumber].answer;
-  var expression1 = questions[questionNumber].answer1;
-
   if (expression !== expression1) {
     timeLeft = Math.floor(timeLeft*0.5);
   } 
@@ -120,9 +122,6 @@ function checkFirstAnswer() {
 secondAnswer.addEventListener('click', checkSecondAnswer);
 
 function checkSecondAnswer() {
-  var expression = questions[questionNumber].answer;
-  var expression2 = questions[questionNumber].answer2;
-
   if (expression !== expression2) {
     timeLeft = Math.floor(timeLeft*0.5);
   } 
@@ -133,9 +132,6 @@ function checkSecondAnswer() {
 thirdAnswer.addEventListener('click', checkThirdAnswer);
 
 function checkThirdAnswer() {
-  var expression = questions[questionNumber].answer;
-  var expression3 = questions[questionNumber].answer3;
-
   if (expression !== expression3) {
     timeLeft = Math.floor(timeLeft*0.5);
   } 
@@ -146,8 +142,6 @@ function checkThirdAnswer() {
 fourthAnswer.addEventListener('click', checkFourthAnswer);
 
 function checkFourthAnswer() {
-  var expression = questions[questionNumber].answer;
-  var expression4 = questions[questionNumber].answer4;
 
   if (expression !== expression4) {
     timeLeft = Math.floor(timeLeft*0.5);

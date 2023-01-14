@@ -4,16 +4,18 @@ var timerEl = document.getElementById("timer");
 
 // variables for functions once quiz ends
 var inputEl = document.getElementById("initials");
-var submitEl = document.getElementById("submit");
 var scoreEl = document.getElementById("finalscore");
+var submissionInfo = document.getElementById("submissionInfo");
+var submitEl = document.getElementById("submit");
+var highScoreEl = document.getElementById("highScore");
 
 // variables for functions as quiz continues
+var questionsEl = document.getElementById("questions")
 var questionEl = document.getElementById("question");
 var firstAnswer = document.querySelector(".firstAnswer")
 var secondAnswer = document.querySelector(".secondAnswer");
 var thirdAnswer = document.querySelector(".thirdAnswer");
 var fourthAnswer = document.querySelector(".fourthAnswer");
-
 var check = document.querySelector(".check");
 
 // variables containing my questions and answers
@@ -63,18 +65,18 @@ var questions = [
 // variables for clicker events
 var timeCounter = 0;
 var questionNumber = 0;
-var timeLeft = 61;
+var timeLeft = 60;
 var timerInterval;
 var score;
 
-var expression = "";
-
-// functions for start events
+// button to click to start quiz
 startBtn.addEventListener('click', startQuiz);
 
+// function to start timer for quiz
 function start() {
 // Sets interval in variable
 startBtn.classList.add("hide");
+questionsEl.classList.remove("hide");
 
 timerInterval = setInterval(function() {
   timeLeft--;
@@ -88,14 +90,16 @@ timerInterval = setInterval(function() {
   }, 1000);
 }
 
+// function to hide start button, start timer and show first question
 function startQuiz() {
-  
+
   startBtn.classList.add("hide");
 
   start();
   showFirstQuestion();
 }
 
+// function to show first question using index of 0 from questionNumber
 function showFirstQuestion() {
   questionEl.innerText = questions[questionNumber].question;
   firstAnswer.innerText = questions[questionNumber].answer1;
@@ -104,6 +108,10 @@ function showFirstQuestion() {
   fourthAnswer.innerText = questions[questionNumber].answer4;
 }
 
+// variable to store an expression for checkAnswer()
+var expression = "";
+
+// function to check answer and deduct score
 function checkAnswer(answerPick) {
   
   expression = questions[questionNumber].answer;
@@ -122,16 +130,18 @@ function checkAnswer(answerPick) {
   showNextQuestion();
 }
 
-function stop() {  
-  clearInterval(timerInterval);
-  scoreEl.textContent = timeLeft;
-} 
-
+// function to show next question, and disable answer buttons, show submission form and submit button after answer five questions
 function showNextQuestion() {
 
   questionNumber++;
   if (questionNumber === questions.length) {
     stop();
+    firstAnswer.disabled = true;
+    secondAnswer.disabled = true;
+    thirdAnswer.disabled = true;
+    fourthAnswer.disabled = true;
+    submissionInfo.classList.remove("hide");
+    submitEl.classList.remove("hide");
   } else {
     questionEl.innerText = questions[questionNumber].question;
     firstAnswer.innerText = questions[questionNumber].answer1;
@@ -141,8 +151,37 @@ function showNextQuestion() {
   };
 };
 
-function saveScore(event) {
-  console.log("savedscore");
-  event.preventDefault;
-
+// function to stop timer and show score after answering 5 questions before timer reach 0.
+function stop() {  
+  clearInterval(timerInterval);
+  scoreEl.textContent = timeLeft;
 }
+
+// event listener to submit initials and scores using function saveScore
+submitEl.addEventListener('click', saveScore);
+
+// create an array for high scores
+var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
+
+function saveScore() {
+
+  var records = {
+    initials: inputEl.value,
+    score: timeLeft,
+  }
+
+  highScores.push(records);
+
+  highScores.sort(function (x, y) {
+    return y.score - x.score
+  });
+
+  localStorage.setItem("highScores", JSON.stringify(highScores));
+}
+
+var highScoreArray = localStorage.getItem("highScores");
+
+
+
+
+

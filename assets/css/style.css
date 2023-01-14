@@ -6,7 +6,7 @@
 body {
   font-size: x-large;
   font-weight: bolder;
-  background-color: orange;
+  background-color: lightgoldenrodyellow;
 }
 
 header {
@@ -86,7 +86,7 @@ button {
   border: 2px solid black;
 }
 
-.start, .submit {
+.start, .submit, .highScore {
   display: flex;
   flex-flow: row wrap;
   width: 100%;

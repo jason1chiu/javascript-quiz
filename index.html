@@ -20,13 +20,11 @@
     </blockquote>
   </section>
 
-  <a href="./highscore.html" target="_blank">View High Scores</a>
-
   <button class="start" id="start">Start</button>
 
   <blockquote class="timer" id="timer"></blockquote>
 
-  <section id="questions">
+  <section class="hide" id="questions">
 
       <section>
         <h2 id="question">Question</h2>
@@ -43,16 +41,22 @@
 
   </section>
 
-  <form>
+  <form class="hide" id="submissionInfo">
     <input type="text" name="initials" id="initials" placeholder="initials">
     <p>
-      Score: <span id="finalscore">24</span>
+      Score: <span id="finalscore"></span>
     </p>
   </form>
 
-  <button class="submit" id="submit" onclick="saveScore(event)">
+  <button class="submit hide" id="submit">
     Submit
   </button>
+
+  <section>
+    <button class="highScore" id="highScore">
+      View High Scores
+    </button>
+  </section>
 
   <script src="./assets/js/script.js"></script>
 </body>

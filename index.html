@@ -16,18 +16,20 @@
 
   <section>
     <blockquote>
-      This 1-minute quiz consists of only 5 multiple-choice questions. When you click "Start", the timer begins countdown. Your score is the amount of time you have left minus 50% for each wrong answer. You also have the option to view the previous record high scores with the person's initial, which we will also ask you to do too.
+      This 1-minute quiz consists of only 5 multiple-choice questions. When you click "Start", the timer begins countdown. Your score is the amount of time you have left minus 10% for each wrong answer. Once you click on an answer, you will know if you are correct or wrong at the bottom of the question. You also have the option to view the previous recorded high scores with the person's initials, which we will also ask you to do too.
     </blockquote>
   </section>
 
-  <button class="start" id="start">Start</button>
+  <section class="buttons">
+    <button class="start" id="start">Start</button>
+  </section>
 
   <blockquote class="timer" id="timer"></blockquote>
 
   <section class="hide" id="questions">
 
       <section>
-        <h2 id="question">Question</h2>
+        <h3 id="question">Question</h3>
       </section>
 
       <section class="buttons">
@@ -42,21 +44,21 @@
   </section>
 
   <form class="hide" id="submissionInfo">
-    <input type="text" name="initials" id="initials" placeholder="initials">
+    <input type="text" name="initials" id="initials" placeholder="Initials">
     <p>
       Score: <span id="finalscore"></span>
     </p>
   </form>
 
-  <button class="submit hide" id="submit">
-    Submit
-  </button>
+  <section class="buttons">
+    <button class="submit hide" id="submit">
+      Submit
+    </button>
 
-  <section>
     <button class="highScore" id="highScore">
       View High Scores
     </button>
-  </section>
+  </section>  
 
   <script src="./assets/js/script.js"></script>
 </body>

@@ -82,8 +82,9 @@ timerInterval = setInterval(function() {
   timeLeft--;
   timerEl.textContent = timeLeft + " second(s) left";
 
-    if (timeLeft <= 0) {
+    if (timeLeft === 0) {
       clearInterval(timerInterval);
+      submissionInfo.classList.remove("hide");
       timerEl.textContent = "TIME'S UP!"
       scoreEl.textContent = "0";
     }
@@ -119,8 +120,10 @@ function checkAnswer(answerPick) {
   if (expression !== answerPick) {
     timeLeft = Math.floor(timeLeft * 0.9);
     check.textContent = "Wrong!";
+    check.style.color = "red";
   } else {
     check.textContent = "Correct!";
+    check.style.color = "green";
   }
 
   setTimeout(function() {

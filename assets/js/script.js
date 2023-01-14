@@ -7,7 +7,6 @@ var inputEl = document.getElementById("initials");
 var scoreEl = document.getElementById("finalscore");
 var submissionInfo = document.getElementById("submissionInfo");
 var submitEl = document.getElementById("submit");
-var highScoreEl = document.getElementById("highScore");
 
 // variables for functions as quiz continues
 var questionsEl = document.getElementById("questions")
@@ -167,9 +166,8 @@ submitEl.addEventListener('click', saveScore);
 var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 
 function saveScore() {
-
   var records = {
-    initials: inputEl.value,
+    Initials: inputEl.value,
     score: timeLeft,
   }
 
@@ -182,9 +180,11 @@ function saveScore() {
   localStorage.setItem("highScores", JSON.stringify(highScores));
 }
 
-var highScoreArray = localStorage.getItem("highScores");
+var savedScores = localStorage.getItem("highScores");
 
+var highScoreEl = document.getElementById("highScore");
 
+highScoreEl.addEventListener('click', showScores);
 
 
 

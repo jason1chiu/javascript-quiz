@@ -100,3 +100,15 @@ input::placeholder {
 .hide {
   display: none;
 }
+
+td, th {
+  border: 1px solid black;
+  padding: 10px 5px;
+  text-align: center;
+  width: 150px;
+}
+
+table {
+  border-collapse: collapse;
+  margin: auto;
+}

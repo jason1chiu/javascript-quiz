@@ -52,10 +52,11 @@ button:hover {
 }
 
 button {
-  margin: 0.5rem 70rem;
+  margin: 1rem 60rem;
   display: flex;
   flex-flow: column wrap;
   width: 100%;
+  min-width: 20rem;
   justify-content: center;
   align-items: center;
   border: 2px solid black;
@@ -69,7 +70,6 @@ button {
 }
 
 .buttons {
-  margin-bottom: 10px;
   display: flex;
   flex-flow: row wrap;
   width: 100%;

@@ -6,7 +6,7 @@ var timerEl = document.getElementById("timer");
 var inputEl = document.getElementById("initials");
 var scoreEl = document.getElementById("finalscore");
 var submissionInfo = document.getElementById("submissionInfo");
-var submitEl = document.getElementById("submit");
+var submitBtn = document.getElementById("submit");
 
 // variables for functions as quiz continues
 var questionsEl = document.getElementById("questions")
@@ -143,7 +143,7 @@ function showNextQuestion() {
     thirdAnswer.disabled = true;
     fourthAnswer.disabled = true;
     submissionInfo.classList.remove("hide");
-    submitEl.classList.remove("hide");
+    submitBtn.classList.remove("hide");
   } else {
     questionEl.innerText = questions[questionNumber].question;
     firstAnswer.innerText = questions[questionNumber].answer1;
@@ -159,13 +159,14 @@ function stop() {
   scoreEl.textContent = timeLeft;
 }
 
-// event listener to submit initials and scores using function saveScore
-submitEl.addEventListener('click', saveScore);
+// event listener to submit initials and scores using function saveScores
+submitBtn.addEventListener('click', saveScores);
 
 // create an array for high scores
 var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 
-function saveScore() {
+// function to store scores, and sort them in descending order
+function saveScores() {
   var records = {
     initials: inputEl.value,
     score: timeLeft,
@@ -182,8 +183,10 @@ function saveScore() {
 
 var highScoreEl = document.getElementById("highScore");
 
+// event listener to view high scores using function showScores
 highScoreEl.addEventListener('click', showScores);
 
+// function to create a table with the headers Initials and Scores, and cells containing the initials and scores
 function showScores() {
   var thead = document.querySelector("#table thead");
   thead.innerHTML = "";
@@ -196,7 +199,7 @@ function showScores() {
 
   var tbody = document.querySelector("#table tbody");
   tbody.innerHTML = ""
-  highScores.forEach(item => {
+  highScores.forEach( function(item) {
     var row = document.createElement("tr");
     var initials = document.createElement("td");
     var scores = document.createElement("td");

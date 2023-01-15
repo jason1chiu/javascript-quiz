@@ -167,7 +167,7 @@ var highScores = JSON.parse(localStorage.getItem("highScores")) || [];
 
 function saveScore() {
   var records = {
-    Initials: inputEl.value,
+    initials: inputEl.value,
     score: timeLeft,
   }
 
@@ -180,33 +180,27 @@ function saveScore() {
   localStorage.setItem("highScores", JSON.stringify(highScores));
 }
 
-/* var savedScores = localStorage.getItem("highScores"); */
-
 var highScoreEl = document.getElementById("highScore");
 
 highScoreEl.addEventListener('click', showScores);
 
 function showScores() {
-  let thead = document.querySelector("#table thead");
+  var thead = document.querySelector("#table thead");
   thead.innerHTML = "";
-  let headers = ["Initials", "Scores"];
-  // headers.forEach( function(item) {
-    for (let i = 0; i < headers.length; i++) {
-      let item = headers[i];
-      let th = document.createElement("th");
-      th.innerText = item;
-      thead.append(th);
-    }
+  var headers = ["Initials", "Scores"];
+    headers.forEach( function(item) {
+    var th = document.createElement("th");
+    th.innerText = item;
+    thead.append(th);
+  })
 
-  //})
-
-  let tbody = document.querySelector("#table tbody");
+  var tbody = document.querySelector("#table tbody");
   tbody.innerHTML = ""
   highScores.forEach(item => {
-    let row = document.createElement("tr");
-    let initials = document.createElement("td");
-    let scores = document.createElement("td");
-    initials.innerText = item.initials || item.Initials || "unknown";
+    var row = document.createElement("tr");
+    var initials = document.createElement("td");
+    var scores = document.createElement("td");
+    initials.innerText =  item.initials || "unknown";
     scores.innerText = item.score;
     row.append(initials, scores);
     tbody.append(row);

@@ -56,7 +56,7 @@ button {
   display: flex;
   flex-flow: column wrap;
   width: 100%;
-  min-width: 20rem;
+  min-width: 16rem;
   justify-content: center;
   align-items: center;
   border: 2px solid black;

@@ -27,3 +27,5 @@ Github Repo: https://github.com/jason1chiu/javascript-quiz
 ![jason1chiu github io_javascript-quiz_ (1)](https://user-images.githubusercontent.com/119711904/212755928-35c6e696-4e2c-4675-9a6f-b120bcd52750.png)
 ![jason1chiu github io_javascript-quiz_ (2)](https://user-images.githubusercontent.com/119711904/212755939-86c84e64-c9ef-4b20-bc33-813e9eec9eb4.png)
 ![jason1chiu github io_javascript-quiz_ (3)](https://user-images.githubusercontent.com/119711904/212755954-03ff609f-62bc-4f95-94a5-079cbb23c7db.png)
+
+[Screen Recording 2023-01-16 at 11.20.02 PM.zip](https://github.com/jason1chiu/javascript-quiz/files/10431159/Screen.Recording.2023-01-16.at.11.20.02.PM.zip)

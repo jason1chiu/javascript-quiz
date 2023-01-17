@@ -20,7 +20,7 @@ THEN the game is over <br>
 WHEN the game is over <br>
 THEN I can save my initials and score <br>
 
-Github Page: https://jason1chiu.github.io/javascript-quiz/
+Github Page: https://jason1chiu.github.io/javascript-quiz/ <br>
 Github Repo: https://github.com/jason1chiu/javascript-quiz
 
 ![jason1chiu github io_javascript-quiz_](https://user-images.githubusercontent.com/119711904/212755909-8a07f82e-6815-4d79-a714-e26d1b97849b.png)
